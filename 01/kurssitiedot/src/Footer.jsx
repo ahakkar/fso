@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
 
-export const Footer = (props) => {
+export const Footer = ({ parts }) => {
+    // Sums the exercises of all parts
+    const totalExercises = parts.reduce((sum, part) => sum + part.exercises, 0);
+
     return (
         <div>
-            <p>Number of exercises {
-                props.part1.exercises + 
-                props.part2.exercises +
-                props.part1.exercises}
-            </p>
+            <p>Number of exercises {totalExercises}</p>
         </div>
-    )
+    );
 }
 
 Footer.propTypes = {
-    part1: PropTypes.object.isRequired,
-    part2: PropTypes.object.isRequired,
-    part3: PropTypes.object.isRequired,
+    parts: PropTypes.arrayOf(
+        PropTypes.shape({
+            exercises: PropTypes.number.isRequired,
+        })
+    ).isRequired,
 }

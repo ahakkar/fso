@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types'
 
-export const Part = (props) => {
+export const Part = ({ part }) => {
     return (
-        <p>{props.part.name} {props.part.exercises}</p>
+        <p>{part.name} {part.exercises}</p>
     )
 }
 
 Part.propTypes = {
-    part: PropTypes.object.isRequired,
+    part: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        exercises: PropTypes.number.isRequired,
+    }).isRequired,
 }
