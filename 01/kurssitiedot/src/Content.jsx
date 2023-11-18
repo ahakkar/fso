@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types';
 import { Part } from './Part';
 
-export const Content = ({ part1, exercises1, part2, exercises2, part3, exercises3 }) => {
+export const Content = (props) => {
     return (
         <div>
-            <Part part={part1} exercises={exercises1} />
-            <Part part={part2} exercises={exercises2} />
-            <Part part={part3} exercises={exercises3} />
+            <Part part={props.part1} />
+            <Part part={props.part2} />
+            <Part part={props.part3} />
         </div>
     )
 }
 
 Content.propTypes = {
-    part1: PropTypes.string.isRequired,
-    exercises1: PropTypes.number.isRequired,
-    part2: PropTypes.string.isRequired,
-    exercises2: PropTypes.number.isRequired,
-    part3: PropTypes.string.isRequired,
-    exercises3: PropTypes.number.isRequired,
+    part1: PropTypes.object.isRequired,
+    part2: PropTypes.object.isRequired,
+    part3: PropTypes.object.isRequired,
 }
